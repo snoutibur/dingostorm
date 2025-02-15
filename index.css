@@ -1,0 +1,117 @@
+:root {
+  --base: #1e1e2e;
+  --text: #cdd6f4;
+  --surface: #313244;
+
+  --red: #f38ba8;
+}
+
+header {
+  position: sticky;
+  color: #cdd6f4;
+  background-color: var(--base);
+
+  text-align: center;
+
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  z-index: 10;
+}
+
+body {
+  margin: 2;
+  background-color: var(--base);
+  color: #cdd6f4;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100;
+}
+
+p {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+input {
+  margin-bottom: 0.8em;
+}
+
+#error-message {
+  color: var(--red);
+}
+
+.forms {
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+}
+
+/* Message box */
+#chat {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+#msgBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Input colors */
+input[type="text"], input[type="password"] {
+  margin-top: 1em;
+  padding: .5em;
+  border: 0;
+  color: var(--text);
+  background-color: var(--surface);
+  width: 100%;
+}
+
+input[type="submit"] {
+  border: 0;;
+  color: var(--text);
+  background-color: var(--surface);
+}
+
+/* EASTER EGGS */
+.doom {
+  width: 80vw;
+  height: 50vw;
+  border: none;
+}
+
+.minecraft {
+  width: 80vw;
+  height: 50vw;
+  border: none;
+}
+
+.rick {
+  width: 50vw;
+  height: 30vw;
+  margin: 0.1em;
+}
+
+.drippy {
+  width: 30vw;
+  height: 50vw;
+  margin: 0.1em;
+}
+
+/* IDK MATE */
+.slope {
+  width: 80vw;
+  height: 50vw;
+}
+
+.removed {
+  display: none;
+}
