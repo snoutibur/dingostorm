@@ -18,18 +18,12 @@
   <div class="forms">
     <div id="register-form">
       <form name="register" id="register">
-        <div>
-          <p>Email:</p>
-          <input type="text" name="email-register">
-        </div>
-        <div>
-          <p>Username:</p>
-          <input type="text" minlength="3" maxlength="35" name="username-register">
-        </div>
-        <div>
-          <p>Password:</p>
-          <input type="password" minlength="6" maxlength="35" name="password-register">
-        </div>
+        <label for="username-register">Username</label>
+        <input type="text" minlength="3" maxlength="35" name="username-register">
+
+        <label for="password-register">Password</label>
+        <input type="password" minlength="6" maxlength="35" name="password-register">
+
         <input type="submit" value="Register">
       </form>
     </div>
@@ -37,14 +31,10 @@
     <!-- Login form -->
     <div id="login-form">
       <form name="login" id="login">
-        <div>
-          <p>Username:</p>
-          <input type="text" name="username-login">
-        </div>
-        <div>
-          <p>Password:</p>
-          <input type="password" name="password-login">
-        </div>
+        <label for="username-login">Username</label>
+        <input type="text" name="username-login">
+        <label for="password-login">Password</label>
+        <input type="password" name="password-login">
         <input type="submit" value="Login">
       </form>
     </div>
