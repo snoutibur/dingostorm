@@ -1,3 +1,5 @@
+// Automatically scroll to the bottom
+
 function toBottom() {
   window.scrollTo({
     top:document.body.scrollHeight
@@ -96,7 +98,7 @@ async function connect() {
         doomElement.src = "https://ustymukhman.github.io/webDOOM/public/";
         doomElement.classList.add("doom");
 
-        document.getElementById("messages").prepend(doomElement);
+        document.getElementById("messages").append(doomElement);
         return;
       }
 
@@ -105,7 +107,7 @@ async function connect() {
         mcElement.src = "https://games.stormyyy.dev/minecraft";
         mcElement.classList.add("minecraft");
 
-        document.getElementById("messages").prepend(mcElement);
+        document.getElementById("messages").append(mcElement);
         return;
       }
 
@@ -115,7 +117,7 @@ async function connect() {
         slopeElement.scrolling= "no";
         slopeElement.classList.add("slope");
 
-        document.getElementById("messages").prepend(slopeElement);
+        document.getElementById("messages").append(slopeElement);
       }
 
       if (msg ==`[${username}]: !givemerick`) {
@@ -129,7 +131,7 @@ async function connect() {
         source.type = "video/mp4";
 
         video.appendChild(source);
-        document.getElementById("messages").prepend(video);
+        document.getElementById("messages").append(video);
 
         return;
       }
@@ -145,7 +147,7 @@ async function connect() {
         source.type = "video/mp4";
 
         video.appendChild(source);
-        document.getElementById("messages").prepend(video);
+        document.getElementById("messages").append(video);
 
         return;
       }
@@ -159,6 +161,8 @@ async function connect() {
       let msgElement = document.createElement("div");
       msgElement.textContent = msg;
       document.getElementById("messages").append(msgElement);
+
+      // autoscroll
       toBottom();
     }
 
