@@ -65,7 +65,9 @@ function sendNotif(notifMessage) {
       })
   
       let notificationSound = new Audio("borkNotif.mp3");
-      notificationSound.play();
+      notificationSound.play().catch(error => {
+        console.warn("Notification sound error: ", error);
+      });
     }
   } else {
     Notification.requestPermission();
@@ -81,18 +83,6 @@ function sendNotif(notifMessage) {
     
     let username = "bob";
     let password = "bob";
-
-    document.forms['register'].onsubmit = function (event) {
-      event.preventDefault();
-
-      const email = this['email-register'].value;
-      username = this['username-register'].value;
-      password = this['password-register'].value;
-
-      socket.send(`REGISTER,${username},${password},${email}`);
-      this.reset();
-      return false;
-    };
 
     document.forms['login'].onsubmit = function(event) {
       event.preventDefault();
@@ -123,7 +113,7 @@ function sendNotif(notifMessage) {
       if (msg_type === "RESPONSE_LOGIN_SUCCESS") {
         document.getElementById("error-message").textContent = "";
         document.getElementById("chat").classList.remove("removed");
-        document.getElementById("register-form").classList.add("removed");
+        // document.getElementById("register-form").classList.add("removed");
         document.getElementById("login-form").classList.add("removed");
         document.createElement
         return; // don't show this message
