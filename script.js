@@ -41,23 +41,35 @@ async function connect() {
   })
 }
 
-// Notification spammer
-if ("Notification" in window) {
-  Notification.requestPermission().then(permission => {
-      if (permission === "granted") {
-        console.log("Notification perms have been granted");
+// Notification spammer //
+let notify = true;
+function notifyToggle() {
+  notify = !notify;
 
-        new Notification("StormChat activity", {
-          body: msg
-      });
-      }
-  });
-} else {
-  console.log("Your browser so lame you no do notifications ;-;");
+  console.log("Notifications: ", autoscroll);
+
+  let notifyToggle = document.getElementById("notifyToggle");
+  if(notify == true) {
+    notifyToggle.innerText = "Notifications ON";
+  } else {
+    notifyToggle.innerText = "Notifications MUTED";
+  }
 }
 
-function newMsgNotif() {
-
+function sendNotif(notifMessage) {
+  if(Notification.permission == "granted") {
+    if(document.hidden || !document.hasFocus()) {
+      new Notification("StormChat Message!", {
+        body: notifMessage,
+        icon: "https://cdn.discordapp.com/avatars/1283147889702604841/29b0ac10fee801532b577c57f3bffb50.webp?size=1024&width=384&height=256"
+      })
+  
+      let notificationSound = new Audio("borkNotif.mp3");
+      notificationSound.play();
+    }
+  } else {
+    Notification.requestPermission();
+  }
 }
 
 // Client events
@@ -93,8 +105,6 @@ function newMsgNotif() {
       return false;
     };
 
-
-    // Send message
     document.forms.message_send.onsubmit = function() {
       let out_msg = this.message.value;
       socket.send(`USER_MESSAGE,${username},${password},${out_msg}`);
@@ -186,8 +196,8 @@ function newMsgNotif() {
         return;
       }
 
+      // remove all games/videos added with commands
       if (msg ==`[${username}]: !ihatefun`) {
-        // remove all games/videos added with commands
         return;
       }
 
@@ -199,6 +209,11 @@ function newMsgNotif() {
       // autoscroll
       if(autoscroll == true) {
         toBottom();
+      }
+
+      // Annoy users with notifications!
+      if(notify == true) {
+        sendNotif(msg);
       }
     }
 
