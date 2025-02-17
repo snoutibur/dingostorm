@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StormChat! :D</title>
+  <title>StormChat! :DD</title>
   <link rel="stylesheet" type="text/css" href="index.css">
   <script src="script.js"></script>
 </head>
@@ -30,7 +30,7 @@
 
     <!-- Login form -->
     <div id="login-form">
-      <form name="login" id="login">
+      <form name="login" id="login" method="post">
         <label for="username-login">Username</label>
         <input type="text" name="username-login">
         <label for="password-login">Password</label>
@@ -42,21 +42,19 @@
 
   <div id="error-message"></div>
 
-  <!-- Display messages -->
-  <div id="chat" class="removed">
-    <div id="messages"></div>
-    <form name="message_send" , id="msgBox">
-      <input type="text" name="message" placeholder="Type a message...">
-      <!-- <div>
-        <input type="checkbox" id="autoScroll" checked>
-        <label for="autoScroll">autoScroll</label>
-      </div> -->
-      <!-- <input type="submit" value="Send"> -->
-    </form>
-  </div>
+      <!-- Display messages -->
+      <div id="chat" class="removed">
+        <div id="messages"></div>
+        <form name="message_send" , id="msgBox">
+          <input type="text" name="message" placeholder="Type a message...">
+        </form>
+
+        <button id="scrollToggle" onclick="scrollToggle()">Autoscroll</button>
+    </div>
 </body>
 
 <footer>
+
 </footer>
 
 </html>

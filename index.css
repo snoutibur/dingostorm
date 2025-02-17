@@ -3,6 +3,8 @@
   --text: #cdd6f4;
   --surface: #313244;
 
+  --outline: #4f379f83;
+
   --red: #f38ba8;
 }
 
@@ -10,8 +12,6 @@ header {
   position: sticky;
   color: #cdd6f4;
   background-color: var(--base);
-
-  text-align: center;
 
   top: 0;
   margin: 0;
@@ -69,16 +69,27 @@ input {
 input[type="text"], input[type="password"] {
   margin-top: 1em;
   padding: .5em;
-  border: 0;
   color: var(--text);
   background-color: var(--surface);
   width: 100%;
+
+  border-color: var(--outline);
+  border-style: solid;
 }
 
 input[type="submit"] {
-  border: 0;;
   color: var(--text);
   background-color: var(--surface);
+
+  border-style: none;
+}
+
+button {
+  background-color: var(--surface);
+  color: var(--text);
+
+  border-color: var(--outline);
+  border-style: solid;
 }
 
 /* EASTER EGGS */

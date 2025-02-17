@@ -1,4 +1,5 @@
-// Automatically scroll to the bottom
+// Automatically scroll to the bottom & toggles
+let autoscroll = true;
 
 function toBottom() {
   window.scrollTo({
@@ -6,6 +7,19 @@ function toBottom() {
   });
 }
 
+function scrollToggle() {
+  autoscroll = !autoscroll;
+  console.log("Auto scroll: ", autoscroll);
+
+  let toggleButton = document.getElementById("scrollToggle");
+  if(autoscroll == true) {
+    toggleButton.innerText = "Autoscroll ON";
+  } else {
+    toggleButton.innerText = "Autoscroll OFF";
+  }
+};
+
+// Connect
 async function connect() {
   return new Promise((resolve, reject) => {
     const socket = new WebSocket("wss://chat.stormyyy.dev");
@@ -27,6 +41,26 @@ async function connect() {
   })
 }
 
+// Notification spammer
+if ("Notification" in window) {
+  Notification.requestPermission().then(permission => {
+      if (permission === "granted") {
+        console.log("Notification perms have been granted");
+
+        new Notification("StormChat activity", {
+          body: msg
+      });
+      }
+  });
+} else {
+  console.log("Your browser so lame you no do notifications ;-;");
+}
+
+function newMsgNotif() {
+
+}
+
+// Client events
 (async () => {
   try {
     // Login form
@@ -163,13 +197,14 @@ async function connect() {
       document.getElementById("messages").append(msgElement);
 
       // autoscroll
-      toBottom();
+      if(autoscroll == true) {
+        toBottom();
+      }
     }
 
     // no get booted
     setInterval(() => {
       socket.send("ping");
-      //console.log("Sent ping to server");
     }, 10000);
 
   } catch (error) {
