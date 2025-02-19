@@ -1,5 +1,6 @@
 :root {
   --base: #1e1e2e;
+  --base2: #171723;
   --text: #cdd6f4;
   --surface: #313244;
 
@@ -10,27 +11,35 @@
 
 header {
   position: sticky;
-  color: #cdd6f4;
-  background-color: var(--base);
-
-  top: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-
   z-index: 10;
+
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 3.5rem;
+  
+  top: 0;
+  left: 0;
+  right: 0;
+
+  color: var(--text);
+  background-color: var(--base);
 }
 
 body {
-  margin: 2;
-  background-color: var(--base);
+  margin: 1%;
   color: #cdd6f4;
+  background-color: var(--base);
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100;
+.centerXY {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 p {
@@ -46,18 +55,15 @@ input {
   color: var(--red);
 }
 
-.forms {
-  display: flex;
-  flex-direction: row;
-  gap: 3em;
+#login-form form {
+  width: 95%;
 }
 
 /* Message box */
 #chat {
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  position: fixed;
+  bottom: 10px;
+  width: 98%;
 }
 
 #msgBox {
@@ -123,6 +129,7 @@ button {
   height: 50vw;
 }
 
+/* Login Page */
 .removed {
   display: none;
 }

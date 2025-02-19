@@ -9,27 +9,15 @@
   <script src="script.js"></script>
 </head>
 
-<header>
-  <h1>DingoStorm :3</h1>
-</header>
-
 <body>
-  <!-- Registration form -->
-  <div class="forms">
-    <div id="register-form">
-      <form name="register" id="register">
-        <label for="username-register">Username</label>
-        <input type="text" minlength="3" maxlength="35" name="username-register">
+  <header>
+    <h1>DingoStorm :3</h1>
+  </header>
 
-        <label for="password-register">Password</label>
-        <input type="password" minlength="6" maxlength="35" name="password-register">
-
-        <input type="submit" value="Register">
-      </form>
-    </div>
-
-    <!-- Login form -->
+  <!-- Login form -->
+  <div class="centerXY">
     <div id="login-form">
+      <h2>Login to StormChat!!!</h2>
       <form name="login" id="login" method="post">
         <label for="username-login">Username</label>
         <input type="text" name="username-login">
@@ -38,23 +26,21 @@
         <input type="submit" value="Login">
       </form>
     </div>
+    <div id="error-message"></div>
   </div>
 
-  <div id="error-message"></div>
 
-      <!-- Display messages -->
-      <div id="chat" class="removed">
-        <div id="messages"></div>
-        <form name="message_send" , id="msgBox">
-          <input type="text" name="message" placeholder="Type a message...">
-        </form>
+  <!-- Display messages -->
+  <div id="chat" class="removed">
+    <div id="messages"></div>
 
-        <button id="scrollToggle" onclick="scrollToggle()">Autoscroll</button>
-    </div>
+
+    <form name="message_send" , id="msgBox">
+      <input type="text" name="message" placeholder="Type a message...">
+    </form>
+    <button id="scrollToggle" onclick="scrollToggle()">Autoscroll</button>
+    <button id="notifyToggle" onclick="notifyToggle()">Notifications</button>
+  </div>
 </body>
-
-<footer>
-
-</footer>
 
 </html>
