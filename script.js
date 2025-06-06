@@ -22,7 +22,7 @@ function scrollToggle() {
 // Connect
 async function connect() {
   return new Promise((resolve, reject) => {
-    const socket = new WebSocket("wss://chat.stormyyy.dev");
+    const socket = new WebSocket("wss://chat.stormyyy.xyz");
 
     socket.onopen = function(event) {
       console.log("Connection with server established!");
